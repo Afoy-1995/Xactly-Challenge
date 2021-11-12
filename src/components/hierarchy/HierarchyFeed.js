@@ -9,32 +9,44 @@ const Root = styled.div`
 
 const List = styled.div`
     display: flex;
-    flex-direction: row;
-    min-height: 100vh;
+    flex-direction: column;
 `
 
 const HierarchyFeed = ({list}) => {
+    const [positionGroups, setPositionGroups] = useState({})
+    
     useEffect(() => {
         createOrgChart(list)
     }, [list])
 
     function createOrgChart(list) {
-        const arr = []
+        let arr = []
         for (const id in list) {
             const user = list[id]
             arr.push(user)
         }
-
-        const groupContinents = arr.reduce((rv, x) => {
-            (rv[x['continent']] = rv[x['continent']] || []).push(x);
-            return rv;
+        arr = arr.sort()
+        const groupPositions = arr.reduce((rv, x) => {
+            (rv[x['position']] = rv[x['position']] || []).push(x);
+            return rv
         }, {})
 
-        console.log(groupContinents)
+        setPositionGroups(groupPositions)
     }
+
     return (
         <Root>
-            
+            {Object.keys(positionGroups).map((v) => {
+                if (v !== "-1") {
+                    return(  
+                        <List key={v}>
+                            {positionGroups[v].map((user) => {
+                               return ( <HierarchyNode user={user} /> )
+                            })}
+                        </List>
+                    )
+                }
+            })}
         </Root>
     )
 }

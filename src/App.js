@@ -15,7 +15,7 @@ const App = () => {
       country: "N/A",
       city: "N/A"
   };
-  // This simulates a GET request and a database creation 
+  // This simulates a GET request and a database creation has aspects of a RESTful API
   useEffect(() => {
     dummyDb.createDummyUser(currentUser)
     for (let i = 0; i < db.hierarchy.length; i++) {
@@ -23,6 +23,7 @@ const App = () => {
     }
     setProfiles(dummyDb.profiles)
   }, [])
+
   return (
       <div>
         <DashBoard profiles={profiles} corps={db.company} user={currentUser}/>
