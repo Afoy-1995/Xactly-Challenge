@@ -1,0 +1,190 @@
+
+{
+    "company": "Dummy Corp.",
+    "hierarchy": [
+        {
+            "position": 0,
+            "manages": [1, 2, 3],
+            "status": "critical",
+            "continent": "N/A",
+            "country": "N/A",
+            "city": "N/A"
+        },
+        {
+            "position": 1,
+            "manages": [2, 3],
+            "status": "warning",
+            "continent": "North America",
+            "country": "N/A",
+            "city": "N/A"
+        },
+        {
+            "position": 1,
+            "manages": [2, 3],
+            "status": "critical",
+            "continent": "Europe",
+            "country": "N/A",
+            "city": "N/A"
+        },
+        {
+            "position": 2,
+            "manages": [3],
+            "status": "warning",
+            "continent": "North America",
+            "country": "U.S.A",
+            "city": "N/A"
+        },
+        {
+            "position": 2,
+            "manages": [3],
+            "status": "normal",
+            "continent": "North America",
+            "country": "Canada",
+            "city": "N/A"
+        },
+        {
+            "position": 2,
+            "manages": [3],
+            "status": "warning",
+            "continent": "Europe",
+            "country": "Germany",
+            "city": "N/A"
+        },
+        {
+            "position": 2,
+            "manages": [3],
+            "status": "critical",
+            "continent": "Europe",
+            "country": "Germany",
+            "city": "N/A"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "North America",
+            "country": "U.S.A",
+            "city": "Los Angeles"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "North America",
+            "country": "U.S.A",
+            "city": "Denver"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "North America",
+            "country": "U.S.A",
+            "city": "Chicago"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "North America",
+            "country": "U.S.A",
+            "city": "Buffalo"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "North America",
+            "country": "Canada",
+            "city": "Toronto"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "North America",
+            "country": "Canada",
+            "city": "Vancouver"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "North America",
+            "country": "Canada",
+            "city": "Calgary"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "North America",
+            "country": "Canada",
+            "city": "Winnipeg"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "Europe",
+            "country": "Germany",
+            "city": "Hamburg"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "Europe",
+            "country": "Germany",
+            "city": "Dusseldorf"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "Europe",
+            "country": "Germany",
+            "city": "Berlin"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "Europe",
+            "country": "Germany",
+            "city": "Munich"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "Europe",
+            "country": "France",
+            "city": "Lyon"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "Europe",
+            "country": "France",
+            "city": "Dijon"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "Europe",
+            "country": "France",
+            "city": "Paris"
+        },
+        {
+            "position": 3,
+            "manages": [],
+            "status": "critical",
+            "continent": "Europe",
+            "country": "France",
+            "city": "Marseille"
+        }
+    ]
+}

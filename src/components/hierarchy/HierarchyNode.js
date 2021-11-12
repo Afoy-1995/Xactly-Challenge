@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from "react";
+import React, {useState} from "react";
 import styled from "styled-components/macro";
 // This will be static so that it is easier to read
 const Root = styled.div`
@@ -7,9 +7,23 @@ const Root = styled.div`
     border-style: solid;
     border-width: 0.5px;
     border-radius: 10%;
-    background-color: ${(status) =>{status !== "normal" ? status !== "warning" ? "critical" }}
+    text-align: center
 `
 
-const Node = ({position, status, continent = "N/A", country = "N/A", city = "N/A"}) => {
-    
+const HierarchyNode = ({user}) => {
+    const position = useState(user.position)
+    const status = useState(user.status)
+    const continent = useState(user.continent)
+    const country = useState(user.country)
+    const city = useState(user.city)
+    return (
+        <Root color={status}>
+            {position}
+            {continent !== "N/A" ? continent : ""}
+            {country !== "N/A" ? country : ""}
+            {city !== "N/A" ? city : ""}
+        </Root>
+    );
 }
+
+export default HierarchyNode
