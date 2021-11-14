@@ -21,13 +21,13 @@ const DashBoard  = ({user, corps, profiles}) => {
     const [currCorps, setCorps] = useState(corps)
     const [currList, setList] = useState(profiles)
     useEffect(() => {
-        const interval = setInterval(() => {
-            window.location.reload(false)
-        }, 1800000);
         setUser(user)
         setCorps(corps)
+    }, [corps, user])
+
+    useEffect(() => {
         setList(profiles)
-    }, [corps, profiles, user])
+    })
     
     return (
         <Root>

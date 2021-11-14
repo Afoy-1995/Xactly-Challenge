@@ -5,9 +5,7 @@ import HierarchyNode from "./HierarchyNode";
 const Root = styled.div`
     display: flex;
     flex-direction: column;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
     max-width: 100%;
     height: 25%;
 `
@@ -23,7 +21,10 @@ const ListItem = styled.tr`
     display: flex;
     flex-direction: row;
     margin: auto;
-    border-top: 1px solid black;
+
+    &:first-child {
+        border-top: 1px solid black;
+    }
 `
 
 const HierarchyFeed = ({ list }) => {
@@ -33,9 +34,6 @@ const HierarchyFeed = ({ list }) => {
         setListModel(list)
     }, [list])
 
-    
-
-
     // create a dynamic ordered list
     return (
         <Root>
@@ -43,7 +41,7 @@ const HierarchyFeed = ({ list }) => {
                 {listModel  ? <ListItem><HierarchyNode user={listModel}/></ListItem> : null}
                 <ListItem>
                     {listModel.manages !== undefined && listModel.manages !== null && listModel.manages.length > 0 ? listModel.manages.map((elem) => {
-                        return <HierarchyFeed list={elem} />
+                        return <HierarchyFeed key={`${elem.position}-${elem.continent}-${elem.country}-${elem.city}`} list={elem} />
                     }): null}
                 </ListItem>
             </List>

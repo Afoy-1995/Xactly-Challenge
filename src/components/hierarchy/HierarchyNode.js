@@ -49,9 +49,8 @@ const PrevNextColumn = styled.div`
 `
 
 const HierarchyNode = ({ user }) => {
-    console.log(user)
     const [position, setPosition] = useState("")
-    const [status, setStatus] = useState("blue")
+    const [status, setStatus] = useState("")
 
     useEffect(() => {
         switch (user.status) {
@@ -63,7 +62,7 @@ const HierarchyNode = ({ user }) => {
                 break;
             default: setStatus("blue") // New to role or has no sales goals
         }
-    }, [user.status])
+    })
 
     useEffect(() => {
         switch (user.position) {
