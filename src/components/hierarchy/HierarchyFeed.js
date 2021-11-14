@@ -14,17 +14,14 @@ const List = styled.table`
     display: flex;
     flex-direction: column;
     list-style: none;
-    border-collapse: collapse
+    border-collapse: collapse;
+    border-width: 0px;
 `
 
 const ListItem = styled.tr`
     display: flex;
     flex-direction: row;
     margin: auto;
-
-    &:first-child {
-        border-top: 1px solid black;
-    }
 `
 
 const HierarchyFeed = ({ list }) => {
@@ -32,13 +29,17 @@ const HierarchyFeed = ({ list }) => {
 
     useEffect(() => {
         setListModel(list)
+        
     }, [list])
 
     // create a dynamic ordered list
     return (
         <Root>
             <List>
-                {listModel  ? <ListItem><HierarchyNode user={listModel}/></ListItem> : null}
+                {listModel  ? <ListItem>
+                    <HierarchyNode user={listModel}/>
+                    </ListItem> 
+                    : null}
                 <ListItem>
                     {listModel.manages !== undefined && listModel.manages !== null && listModel.manages.length > 0 ? listModel.manages.map((elem) => {
                         return <HierarchyFeed key={`${elem.position}-${elem.continent}-${elem.country}-${elem.city}`} list={elem} />
