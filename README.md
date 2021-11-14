@@ -16,3 +16,6 @@ In the future I would go forward with a Better React to library model.
 While I was able to successfully create a Org chart I was unable to add connection lines to provide better
 UX for individuals. Overall, I was happy with some of the modifications I made such as a custom Context Menu,
 as well as some fun React Component Recursion.
+
+## Third Party Libraries
+- Styled Components
