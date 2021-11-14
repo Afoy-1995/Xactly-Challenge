@@ -4,17 +4,30 @@ import HierarchyNode from "./HierarchyNode";
 
 const Root = styled.div`
     display: flex;
-    flex-direction: row;
-    margin: 5px;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    max-width: 100%;
+    height: 25%;
 `
 
-const List = styled.ol`
+const List = styled.table`
     display: flex;
     flex-direction: column;
+    list-style: none;
+    border-collapse: collapse
+`
+
+const ListItem = styled.tr`
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    border-top: 1px solid black;
 `
 
 const HierarchyFeed = ({ list }) => {
-    const [listModel, setListModel] = useState(list)
+    const [listModel, setListModel] = useState({})
 
     useEffect(() => {
         setListModel(list)
@@ -27,10 +40,12 @@ const HierarchyFeed = ({ list }) => {
     return (
         <Root>
             <List>
-                {listModel ? <li><HierarchyNode user={listModel}/></li> : null}
-                {listModel.manages !== undefined && listModel.manages !== null && listModel.manages.length > 0 ? listModel.manages.map((elem) => {
-                    return <li><HierarchyFeed list={elem} /> </li>
-                }): null}
+                {listModel  ? <ListItem><HierarchyNode user={listModel}/></ListItem> : null}
+                <ListItem>
+                    {listModel.manages !== undefined && listModel.manages !== null && listModel.manages.length > 0 ? listModel.manages.map((elem) => {
+                        return <HierarchyFeed list={elem} />
+                    }): null}
+                </ListItem>
             </List>
         </Root>
     )
