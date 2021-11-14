@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { ThemeProvider } from 'styled-components'
 import db from './dummy_db/db.json';
 import DashBoard from './DashBoard';
 
@@ -26,7 +25,11 @@ const App = () => {
       const updatedProfiles = updateStatus(db.hierarchy)
       setProfiles(updatedProfiles)
     }, 1800000);
-})
+
+    return () => {
+      clearInterval(interval)
+    }
+}, [])
 
 function updateStatus(list) {
   const randomNumber = (Math.random().toFixed(2) * 100)

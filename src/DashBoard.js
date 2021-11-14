@@ -35,7 +35,7 @@ const DashBoard  = ({user, corps, profiles}) => {
 
     useEffect(() => {
         setList(profiles)
-    })
+    },[profiles, setList])
     
     return (
         <Root checkScreen={isTvScreen()} >
