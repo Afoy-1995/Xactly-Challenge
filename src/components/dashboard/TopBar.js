@@ -6,7 +6,7 @@ import AvatarContainer from "./AvatarContainer";
 const Root = styled.div`
     display: flex;
     width: 100%;
-    height: 100px;
+    height: 80px;
     background-color: #202020;
     flex-flow: row;
 `

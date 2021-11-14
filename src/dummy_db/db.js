@@ -86,6 +86,6 @@ export class Dummybase {
     }
 
     get profiles() {
-        return this.database
+        return Object.values(this.database)
     }
 }

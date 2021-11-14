@@ -1,52 +1,37 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components/macro";
 import HierarchyNode from "./HierarchyNode";
 
 const Root = styled.div`
     display: flex;
-    min-height: 100vh;
+    flex-direction: row;
+    margin: 5px;
 `
 
-const List = styled.div`
+const List = styled.ol`
     display: flex;
     flex-direction: column;
 `
 
-const HierarchyFeed = ({list}) => {
-    const [positionGroups, setPositionGroups] = useState({})
-    
+const HierarchyFeed = ({ list }) => {
+    const [listModel, setListModel] = useState(list)
+
     useEffect(() => {
-        createOrgChart(list)
+        setListModel(list)
     }, [list])
 
-    function createOrgChart(list) {
-        let arr = []
-        for (const id in list) {
-            const user = list[id]
-            arr.push(user)
-        }
-        arr = arr.sort()
-        const groupPositions = arr.reduce((rv, x) => {
-            (rv[x['position']] = rv[x['position']] || []).push(x);
-            return rv
-        }, {})
+    
 
-        setPositionGroups(groupPositions)
-    }
 
+    // create a dynamic ordered list
     return (
         <Root>
-            {Object.keys(positionGroups).map((v) => {
-                if (v !== "-1") {
-                    return(  
-                        <List key={v}>
-                            {positionGroups[v].map((user) => {
-                               return ( <HierarchyNode user={user} /> )
-                            })}
-                        </List>
-                    )
-                }
-            })}
+            <List>
+                {listModel ? <li><HierarchyNode user={listModel}/></li> : null}
+                {listModel.manages !== undefined && listModel.manages !== null && listModel.manages.length > 0 ? listModel.manages.map((elem) => {
+                    return <li><HierarchyFeed list={elem} /> </li>
+                }): null}
+            </List>
         </Root>
     )
 }

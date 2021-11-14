@@ -10,11 +10,10 @@ const Root = styled.div`
     flex-wrap: flex;
     flex-direction: column;
     background-color: #f1f1f1;
+    min-height: 100vh;
 `
 const HierarchyContainer = styled.div`
-    display: flex;
-    flex-wrap: flex;
-    flex-direction: row;
+    flex-direction: column;
 `
 
 const DashBoard  = ({user, corps, profiles}) => {
@@ -23,7 +22,7 @@ const DashBoard  = ({user, corps, profiles}) => {
     const [currList, setList] = useState(profiles)
     useEffect(() => {
         const interval = setInterval(() => {
-            window.location.reload(3000)
+            window.location.reload(false)
         }, 1800000);
         setUser(user)
         setCorps(corps)
